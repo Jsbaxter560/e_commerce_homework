@@ -39,20 +39,22 @@ Product.init(
       },
     },
     
-    category_name: {
+    category_id: {
       type: DataType.INTEGER,
       allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
+      references: {
+        model: 'category',
+        key: 'id',
     },
   },
+},
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'product',
-  }
+  },
 );
 
 module.exports = Product;
